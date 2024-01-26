@@ -16,3 +16,4 @@ An examples collection writting in Go for implement some AWS services.
 - Delete a file from a AWS bucket
 
 ### Information 
+https://dev.to/luigiescalante/aws-s3-sdk-v2-in-go-quickly-example-ifk
