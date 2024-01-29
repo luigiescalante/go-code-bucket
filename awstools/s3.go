@@ -1,7 +1,6 @@
 package awstools
 
 import (
-	"bytes"
 	"context"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/feature/s3/manager"
@@ -41,17 +40,17 @@ func (cli *AwsS3Client) GetObjects() ([]types.Object, error) {
 }
 
 func (cli *AwsS3Client) UploadObject(path string) (*manager.UploadOutput, error) {
-	file, err := os.ReadFile(path)
+	file, err := os.Open(path)
 	if err != nil {
 		return nil, err
 	}
-	data := bytes.NewReader(file)
+	defer file.Close()
 	client := s3.NewFromConfig(cli.config)
 	uploader := manager.NewUploader(client)
 	result, err := uploader.Upload(context.TODO(), &s3.PutObjectInput{
 		Bucket: aws.String(cli.bucket),
 		Key:    aws.String(filepath.Base(path)),
-		Body:   data,
+		Body:   file,
 	})
 	if err != nil {
 		return nil, err
