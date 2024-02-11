@@ -1,5 +1,5 @@
 # Go AWS services
-An examples collection writting in Go for implement some AWS services.
+An examples collection writing in Go for implement some AWS services.
 
 ![GitHub tag (with filter)](https://img.shields.io/github/v/tag/luigiescalante/go-api-template)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/luigiescalante/go-api-template/main)
