@@ -9,19 +9,36 @@ An examples collection for use Bun, a light ORM for postgresql database.
 <img src="../github-logo.png" alt="logo" width="200" height="292">
 </p>
 
-# Bun examples
+# Bun Code examples
 - Save a new entity
 - Update an entity
 - Soft delete entity
 - Get one entity
 - Get an entity list
 
-### Information
-https://dev.to/luigiescalante/aws-s3-sdk-v2-in-go-quickly-example-ifk
-
-
-https://bun.uptrace.dev/
-
+## Requirements
+- Go
+- Docker
+- Docker Compose
+## Install project
+1.  Start docker compose for database postgresql
+~~~~
+    sudo docker-compose up -d --build
+~~~~
+2.  Set env vars on your environment
+~~~~
+export BUN_DRIVER=<user database (Ex. postgresql,sqlite)>
+export DB_USER=<user database (Ex. admin)>
+export DB_PASSWORD=<user password (Ex. admin123)>
+export DB_NAME=<db name (Ex. code_bucket)>
+export DB_HOST=<host address (Ex. localhost)>
+export DB_PORT=<database port (Ex. 5432)>
+~~~~
+3. Run Bun migrations 
+~~~~
+go run infrastructure/bundb/kit/cmd/bun/main.go -env=dev db init
+go run infrastructure/bundb/kit/cmd/bun/main.go -env=dev db migrate
+~~~~
 
 postgres://admin:admin123@localhost:5432/code_bucket?sslmode=disable
 
@@ -39,3 +56,10 @@ go run cmd/bun/main.go
 
 
 https://github.com/uptrace/bun/tree/master/example/migrate
+
+
+go get github.com/luigiescalante/bun-starter-kit/bunapp
+
+go get github.com/luigiescalante/bun-starter-kit/cmd/bun/migrations
+
+
