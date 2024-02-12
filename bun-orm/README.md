@@ -27,39 +27,13 @@ An examples collection for use Bun, a light ORM for postgresql database.
 ~~~~
 2.  Set env vars on your environment
 ~~~~
-export BUN_DRIVER=<user database (Ex. postgresql,sqlite)>
 export DB_USER=<user database (Ex. admin)>
 export DB_PASSWORD=<user password (Ex. admin123)>
 export DB_NAME=<db name (Ex. code_bucket)>
 export DB_HOST=<host address (Ex. localhost)>
 export DB_PORT=<database port (Ex. 5432)>
 ~~~~
-3. Run Bun migrations 
-~~~~
-go run infrastructure/bundb/kit/cmd/bun/main.go -env=dev db init
-go run infrastructure/bundb/kit/cmd/bun/main.go -env=dev db migrate
-~~~~
 
-postgres://admin:admin123@localhost:5432/code_bucket?sslmode=disable
+## Information and tutorial
 
-go get github.com/uptrace/bun@latest
-
-go get github.com/uptrace/bun/driver/pgdriver
-
-
-go get github.com/uptrace/bun/dialect/pgdialect
-
-
-go run cmd/bun/main.go -env=dev db init
-
-go run cmd/bun/main.go
-
-
-https://github.com/uptrace/bun/tree/master/example/migrate
-
-
-go get github.com/luigiescalante/bun-starter-kit/bunapp
-
-go get github.com/luigiescalante/bun-starter-kit/cmd/bun/migrations
-
-
+https://dev.to/luigiescalante/go-bun-orm-with-postgresql-quickly-example-394o
