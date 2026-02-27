@@ -2,10 +2,12 @@ package awstools
 
 import (
 	"context"
+	"os"
+
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"
-	"os"
+	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 )
 
 const AwsKeyEnv = "AWS_KEY"
@@ -29,5 +31,14 @@ func NewAwsConfigClient(region string) (*AwsConfigClient, error) {
 	}
 	return &AwsConfigClient{
 		config: cfg,
+		region: region,
 	}, err
+}
+
+// DynamoDB builds a service client from the stored AWS config.
+func (cli *AwsConfigClient) DynamoDB() *dynamodb.Client {
+	if cli == nil {
+		return nil
+	}
+	return dynamodb.NewFromConfig(cli.config)
 }

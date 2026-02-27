@@ -17,3 +17,10 @@ An examples collection writing in Go for implement some AWS services.
 
 ### Information 
 https://dev.to/luigiescalante/aws-s3-sdk-v2-in-go-quickly-example-ifk
+
+# AWS DynamoDB
+- Create a DynamoDB table
+- Insert an item into a DynamoDB table
+- Get an item from a DynamoDB table
+- Update an item in a DynamoDB table
+- Delete an item from a DynamoDB table
